@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechTrek - Learn Your Way</title>
+  <link rel="stylesheet" href="e-learning.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Login Screen -->
+  <div class="login-screen" id="login-screen">
+    <div class="login-box">
+      <img src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/dev-512.png" alt="TechTrek Logo" class="logo" />
+      <h1>Join TechTrek</h1>
+      <p>Shape your future with interactive learning</p>
+
+      <input type="text" id="username" placeholder="Your Name" />
+      <input type="email" id="email" placeholder="Email Address" />
+      <select id="role">
+        <option value="">Select Role</option>
+        <option value="Student">Student</option>
+        <option value="Instructor">Instructor</option>
+      </select>
+
+      <div class="login-error" id="login-error"></div>
+
+      <button onclick="login()">Log in</button>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <div id="app" class="hidden">
+    <header>
+        <div style="display: flex; align-items: center;">
+          <img src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/dev-512.png" alt="TechTrek Logo" style="width: 40px; margin-right: 10px;">
+          <h1 style="margin: 0; font-size: 1.8em; padding-left: 5px;">TechTrek</h1>
+        </div>
+        <div class="user-info">
+            <div class="user-details">
+              <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Icon" class="user-avatar" />
+              <p class="user-welcome">Hi, <span id="userDisplay"></span></p>
+            </div>
+            <button onclick="logout()" class="logout-btn">Log out</button>
+          </div>
+          
+      </header>
+      
+
+    <nav>
+      <ul>
+        <li onclick="showSection('dashboard')">Dashboard</li>
+        <li onclick="showSection('courses')">Courses</li>
+        <li onclick="showSection('ongoingclasses')">Ongoing Classes</li>
+        <li onclick="showSection('certificates')">Certificates</li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="dashboard" data-title="Dashboard">
+        <h2>Welcome to TechTrek, <span id="user-name"></span>! 🎉</h2>
+        <p>
+        We’re thrilled to have you here! At TechTrek, we believe that learning should be exciting, accessible, and goal-driven. Whether you're diving into your first coding course or brushing up your skills to become a tech pro — you've landed at the right place.
+        </p>
+        <p>
+        🔹 Access a wide range of curated courses designed by industry experts.<br>
+        🔹 Keep track of your progress in real-time and stay motivated with each milestone.<br>
+        🔹 Climb the leaderboard as you complete modules and earn badges for your achievements.<br>
+        🔹 Unlock certificates and showcase your growth to future employers or peers.<br>
+        🔹 Explore bonus content like podcasts, tech talks, and advanced challenges to deepen your knowledge.
+        </p>
+        <p>
+        Let's embark on this exciting journey together. Click through the tabs above to begin — your future starts now!
+        </p>
+      </section>
+
+      <section id="courses" data-title="Courses">
+    <h2>Explore Our Courses</h2>
+    <div class="course-container">
+       
+            <div class="course-card">
+              <h3>HTML & CSS Basics</h3>
+              <p>Learn the foundations of web development using HTML and CSS to build beautiful, responsive sites.</p>
+              <span class="badge beginner">Beginner</span>
+              <button class="enroll-btn" onclick="enrollCourse(this)">Enroll</button>
+            </div>
+          
+            <div class="course-card">
+              <h3>JavaScript Essentials</h3>
+              <p>Master the fundamentals of JavaScript and start building interactive websites and apps.</p>
+              <span class="badge intermediate">Intermediate</span>
+              <button class="enroll-btn" onclick="enrollCourse(this)">Enroll</button>
+            </div>
+          
+            <div class="course-card">
+              <h3>Python Programming</h3>
+              <p>Understand Python from the ground up—perfect for automation, scripting, or data science.</p>
+              <span class="badge beginner">Beginner</span>
+              <button class="enroll-btn" onclick="enrollCourse(this)">Enroll</button>
+            </div>
+          
+            <div class="course-card">
+              <h3>Machine Learning Intro</h3>
+              <p>Get started with machine learning concepts and algorithms using practical examples.</p>
+              <span class="badge advanced">Advanced</span>
+              <button class="enroll-btn" onclick="enrollCourse(this)">Enroll</button>
+            </div>
+            <div class="course-card">
+                <h3>Responsive Web Design</h3>
+                <p>Learn to create responsive websites that work seamlessly across all devices, from desktops to smartphones.</p>
+                <span class="badge intermediate">Intermediate</span>
+                <button class="enroll-btn" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            
+              <div class="course-card">
+                <h3>React for Beginners</h3>
+                <p>Start building interactive UIs with React, a popular JavaScript library for creating user interfaces.</p>
+                <span class="badge beginner">Beginner</span>
+                <button class="enroll-btn" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            
+              <div class="course-card">
+                <h3>Node.js Basics</h3>
+                <p>Get introduced to server-side programming with Node.js and build powerful web applications.</p>
+                <span class="badge intermediate">Intermediate</span>
+                <button class="enroll-btn" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            
+              <div class="course-card">
+                <h3>Data Structures & Algorithms</h3>
+                <p>Master the essential data structures and algorithms that are crucial for technical interviews and coding challenges.</p>
+                <span class="badge advanced">Advanced</span>
+                <button class="enroll-btn" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            
+              <!-- Additional New Courses -->
+              <div class="course-card">
+                <h3>Vue.js Basics</h3>
+                <p>Learn how to build modern web applications using Vue.js, a progressive JavaScript framework.</p>
+                <span class="badge beginner">Beginner</span>
+                <button class="enroll-btn" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            
+              <div class="course-card">
+                <h3>Flutter for Mobile Apps</h3>
+                <p>Learn to develop beautiful cross-platform mobile applications using Flutter, Google’s UI toolkit.</p>
+                <span class="badge intermediate">Intermediate</span>
+                <button class="enroll-btn" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            
+              <div class="course-card">
+                <h3>Database Fundamentals</h3>
+                <p>Get a solid understanding of databases and learn how to work with SQL and NoSQL databases for your projects.</p>
+                <span class="badge beginner">Beginner</span>
+                <button class="enroll-btn" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+            
+              <div class="course-card">
+                <h3>Cloud Computing Basics</h3>
+                <p>Discover the fundamentals of cloud computing and learn how to leverage cloud platforms like AWS, Azure, and GCP.</p>
+                <span class="badge advanced">Advanced</span>
+                <button class="enroll-btn" onclick="enrollCourse(this)">Enroll</button>
+              </div>
+    </div>
+    
+    </section>
+      
+    <section id="ongoingclasses" data-title="Ongoing Classes">
+        <h2>Ongoing Classes</h2>
+        <div id="ongoing-courses-container">
+          <!-- Dynamically added ongoing courses will appear here -->
+        </div>
+      </section>
+      
+
+      <section id="certificates" data-title="Certificates">
+        <h2>Certificates</h2>
+        <p class="section-description">
+          The journey to mastering new skills is rewarding. Once you've completed your courses, you'll earn certificates to showcase your achievements. 
+          Each certificate will reflect the effort and knowledge you've gained.
+        </p>
+        <p class="section-description">
+          Keep pushing forward to unlock new opportunities and build a portfolio that speaks to your dedication and growth.
+        </p>
+        <p class="instruction-text">
+          You're just starting out, and the first certificate is waiting for you. Stay motivated!
+        </p>
+    </section>
+    
+    
+      
+    </main>
+  </div>
+
+  <script src="e-learning.js"></script>
+</body>
+</html>
